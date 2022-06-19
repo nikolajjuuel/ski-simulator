@@ -46,7 +46,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""TestButton"",
+                    ""name"": ""ResetSkiier"",
                     ""type"": ""Button"",
                     ""id"": ""61d22bc3-76b9-4e7c-a7ea-b3f3ab973337"",
                     ""expectedControlType"": ""Button"",
@@ -85,7 +85,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""ControlScheme1"",
-                    ""action"": ""TestButton"",
+                    ""action"": ""ResetSkiier"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -104,7 +104,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_ActionMap1 = asset.FindActionMap("ActionMap1", throwIfNotFound: true);
         m_ActionMap1_MoveArms = m_ActionMap1.FindAction("MoveArms", throwIfNotFound: true);
         m_ActionMap1_LeanBody = m_ActionMap1.FindAction("LeanBody", throwIfNotFound: true);
-        m_ActionMap1_TestButton = m_ActionMap1.FindAction("TestButton", throwIfNotFound: true);
+        m_ActionMap1_ResetSkiier = m_ActionMap1.FindAction("ResetSkiier", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -166,14 +166,14 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private IActionMap1Actions m_ActionMap1ActionsCallbackInterface;
     private readonly InputAction m_ActionMap1_MoveArms;
     private readonly InputAction m_ActionMap1_LeanBody;
-    private readonly InputAction m_ActionMap1_TestButton;
+    private readonly InputAction m_ActionMap1_ResetSkiier;
     public struct ActionMap1Actions
     {
         private @InputActions m_Wrapper;
         public ActionMap1Actions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveArms => m_Wrapper.m_ActionMap1_MoveArms;
         public InputAction @LeanBody => m_Wrapper.m_ActionMap1_LeanBody;
-        public InputAction @TestButton => m_Wrapper.m_ActionMap1_TestButton;
+        public InputAction @ResetSkiier => m_Wrapper.m_ActionMap1_ResetSkiier;
         public InputActionMap Get() { return m_Wrapper.m_ActionMap1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -189,9 +189,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @LeanBody.started -= m_Wrapper.m_ActionMap1ActionsCallbackInterface.OnLeanBody;
                 @LeanBody.performed -= m_Wrapper.m_ActionMap1ActionsCallbackInterface.OnLeanBody;
                 @LeanBody.canceled -= m_Wrapper.m_ActionMap1ActionsCallbackInterface.OnLeanBody;
-                @TestButton.started -= m_Wrapper.m_ActionMap1ActionsCallbackInterface.OnTestButton;
-                @TestButton.performed -= m_Wrapper.m_ActionMap1ActionsCallbackInterface.OnTestButton;
-                @TestButton.canceled -= m_Wrapper.m_ActionMap1ActionsCallbackInterface.OnTestButton;
+                @ResetSkiier.started -= m_Wrapper.m_ActionMap1ActionsCallbackInterface.OnResetSkiier;
+                @ResetSkiier.performed -= m_Wrapper.m_ActionMap1ActionsCallbackInterface.OnResetSkiier;
+                @ResetSkiier.canceled -= m_Wrapper.m_ActionMap1ActionsCallbackInterface.OnResetSkiier;
             }
             m_Wrapper.m_ActionMap1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -202,9 +202,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @LeanBody.started += instance.OnLeanBody;
                 @LeanBody.performed += instance.OnLeanBody;
                 @LeanBody.canceled += instance.OnLeanBody;
-                @TestButton.started += instance.OnTestButton;
-                @TestButton.performed += instance.OnTestButton;
-                @TestButton.canceled += instance.OnTestButton;
+                @ResetSkiier.started += instance.OnResetSkiier;
+                @ResetSkiier.performed += instance.OnResetSkiier;
+                @ResetSkiier.canceled += instance.OnResetSkiier;
             }
         }
     }
@@ -222,6 +222,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     {
         void OnMoveArms(InputAction.CallbackContext context);
         void OnLeanBody(InputAction.CallbackContext context);
-        void OnTestButton(InputAction.CallbackContext context);
+        void OnResetSkiier(InputAction.CallbackContext context);
     }
 }

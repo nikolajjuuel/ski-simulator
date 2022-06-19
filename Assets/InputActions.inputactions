@@ -11,7 +11,8 @@
                     "id": "82f37298-1427-409f-9997-86f63841e369",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "LeanBody",
@@ -19,15 +20,17 @@
                     "id": "4f1d5a79-e021-4763-ae33-d5764df3bb51",
                     "expectedControlType": "Stick",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "TestButton",
+                    "name": "ResetSkiier",
                     "type": "Button",
                     "id": "61d22bc3-76b9-4e7c-a7ea-b3f3ab973337",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -60,7 +63,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "ControlScheme1",
-                    "action": "TestButton",
+                    "action": "ResetSkiier",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

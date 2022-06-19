@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotSetter : MonoBehaviour
 {
-    public ArmControl armControl;
+    public PlayerControls armControl;
     ConfigJointController configJointController;
 
     private void Start()

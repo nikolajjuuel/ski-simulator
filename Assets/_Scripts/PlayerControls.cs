@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ArmControl : MonoBehaviour
+public class PlayerControls : MonoBehaviour
 {
     public Vector2 moveArmsValue, leanBodyValue;
+    public bool resetSkiierValue = false;
+    public GameObject skiier;
     public GameObject leftArmBone, rightArmBone;
     public GameObject leftThighBone, rightThighBone, leftShinBone, rightShinBone;
     public Quaternion currentArmRot;
 
+    Vector3 skiierStartPosition;
+    Quaternion skiierStartRotation;
     Quaternion leftArmStartRot, rightArmStartRot;
     Vector3 leftArmStartDir, rightArmStartDir;
-    PlayerInput playerInput;
-    InputAction moveArms, leanBody;
+    //PlayerInput playerInput;
+    //InputAction moveArms, leanBody, resetSkiier;
     private void Start()
     {
         leftArmStartRot = leftArmBone.transform.localRotation;
@@ -21,11 +25,21 @@ public class ArmControl : MonoBehaviour
         currentArmRot = leftArmStartRot;
         leftArmStartDir = new Vector3(0, 0, 1f);
         rightArmStartDir = new Vector3(0, 0, 1f);
+        skiierStartPosition = transform.position;
+        skiierStartRotation = transform.rotation;
     }
     private void Update()
     {
         GatherInputs();
         RotateArmsLocal();
+        if(resetSkiierValue) ResetSkiier();
+    }
+    void ResetSkiier()
+    {
+        Debug.Log("reset skiier called");
+        skiier.transform.position = skiierStartPosition;
+        skiier.transform.rotation = skiierStartRotation;
+        //skiier position, rotation back to start
     }
     void GatherInputs()
     {
@@ -34,6 +48,7 @@ public class ArmControl : MonoBehaviour
 
         leanBodyValue = gamepad.leftStick.ReadValue();
         moveArmsValue = gamepad.rightStick.ReadValue();
+        resetSkiierValue = gamepad.buttonEast.wasPressedThisFrame;
     }
 
     void RotateArmsLocal()
